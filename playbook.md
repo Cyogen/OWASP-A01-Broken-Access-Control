@@ -238,7 +238,7 @@ All recommendations must be documented.
 
 ---
 
-## 📝 Incident Documentation Standards
+## Incident Documentation Standards
 
 <details>
 <summary><strong>Expand</strong></summary>
