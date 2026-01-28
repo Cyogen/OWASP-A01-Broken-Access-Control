@@ -7,7 +7,7 @@
 
 ---
 
-## 📌 Purpose
+## Purpose
 
 <details>
 <summary><strong>Expand</strong></summary>
@@ -24,7 +24,7 @@ The objectives are to ensure:
 
 ---
 
-## 🎯 Scope
+## Scope
 
 <details>
 <summary><strong>Expand</strong></summary>
@@ -45,7 +45,7 @@ The objectives are to ensure:
 
 ---
 
-## 🚨 Alert Overview
+## Alert Overview
 
 <details>
 <summary><strong>Expand</strong></summary>
@@ -71,7 +71,7 @@ The objectives are to ensure:
 
 ---
 
-## 🧠 Common Access Control Failure Scenarios
+## Common Access Control Failure Scenarios
 
 <details>
 <summary><strong>Expand</strong></summary>
@@ -92,7 +92,7 @@ An API token accesses endpoints outside its assigned permission scope.
 
 ---
 
-## 📥 Detection Sources
+## Detection Sources
 
 <details>
 <summary><strong>Expand</strong></summary>
@@ -113,7 +113,7 @@ An API token accesses endpoints outside its assigned permission scope.
 
 ---
 
-## ⏱️ Initial Triage (First 5 Minutes)
+## Initial Triage (First 5 Minutes)
 
 <details>
 <summary><strong>Expand</strong></summary>
@@ -136,7 +136,7 @@ An API token accesses endpoints outside its assigned permission scope.
 
 ---
 
-## 🔍 Investigation Workflow
+## Investigation Workflow
 
 <details>
 <summary><strong>Expand</strong></summary>
@@ -178,7 +178,7 @@ Determine whether:
 
 ---
 
-## 🧭 Decision Logic
+## Decision Logic
 
 <details>
 <summary><strong>Expand</strong></summary>
@@ -201,7 +201,7 @@ Determine whether:
 
 ---
 
-## 📤 Escalation Requirements
+## Escalation Requirements
 
 <details>
 <summary><strong>Expand</strong></summary>
@@ -220,7 +220,7 @@ Escalation packages must include:
 
 ---
 
-## 🛑 Containment & Response (Tier 1 Responsibilities)
+## Containment & Response (Tier 1 Responsibilities)
 
 <details>
 <summary><strong>Expand</strong></summary>
@@ -238,25 +238,164 @@ All recommendations must be documented.
 
 ---
 
-## 📝 Documentation Standards
+## 📝 Incident Documentation Standards
 
 <details>
 <summary><strong>Expand</strong></summary>
 
-Incident documentation must include:
-- Alert ID
-- Detection source
-- Summary of findings
-- Impact assessment
-- Escalation decision
-- Actions taken
-- Time spent on investigation
-
-</details>
+Accurate and complete documentation is mandatory for auditability, handoff to Tier 2, and post-incident review.  
+All investigation steps must be traceable to **specific evidence sources**.
 
 ---
 
-## 🔚 Closure Criteria
+### Required Fields
+
+#### Alert ID
+- Unique alert or ticket identifier
+- SIEM rule name or detection source
+- Time the alert was generated
+
+---
+
+#### Detection Source
+Document *exactly* where the alert originated:
+- SIEM correlation rule
+- WAF alert
+- Application security alert
+- API gateway alert
+- Cloud provider alert (e.g., CloudTrail)
+- Manual analyst detection
+
+---
+
+### Summary of Findings (Critical Section)
+
+The **Summary of Findings** must clearly answer:
+> *What happened, how we know, and where the evidence came from.*
+
+This section should be written in **plain, factual language** and reference **multiple data sources** where applicable.
+
+#### Include the Following Evidence Sources (as applicable):
+
+##### 1. Application Logs
+- Endpoint(s) accessed
+- User ID / account involved
+- Authorization checks performed
+- Application response (allowed / denied)
+- Error messages or stack traces (if any)
+
+Example:
+> Application logs show user `user123` accessed `/api/admin/export` and received HTTP 200 despite lacking admin role.
+
+---
+
+##### 2. Web Server / API Gateway Logs
+- HTTP method used
+- Request URI
+- Response status codes
+- Object identifiers or parameters modified
+- Request frequency and timing
+
+Example:
+> API gateway logs confirm repeated GET requests to sequential object IDs within a 3-minute window.
+
+---
+
+##### 3. Authentication & Authorization Logs
+- Authentication success or failure
+- Role or permission assignments
+- Token scopes or claims
+- Recent permission changes
+
+Example:
+> IAM logs confirm the user authenticated successfully but did not have permissions for the requested resource.
+
+---
+
+##### 4. SIEM Correlation & Query Results
+- Queries executed by analyst
+- Time ranges searched
+- Correlated events across sources
+- Supporting evidence of pattern or repetition
+
+Example:
+> SIEM queries correlated application logs and API gateway logs showing unauthorized access across multiple endpoints.
+
+---
+
+##### 5. Network & Source Context
+- Source IP address
+- GeoIP information
+- ASN or hosting provider
+- Known corporate VPN or third-party service
+
+Example:
+> Requests originated from an external IP not associated with corporate infrastructure.
+
+---
+
+##### 6. WAF / Security Control Outcomes (if applicable)
+- Whether the request was blocked or allowed
+- Rule triggered
+- Bypass or misconfiguration indicators
+
+Example:
+> WAF logs show the request was allowed due to missing authorization enforcement, not blocked by rule.
+
+---
+
+#### Summary Writing Guidance
+- Avoid speculation
+- Avoid assumptions about intent
+- State **only what evidence confirms**
+- Use neutral language
+
+Good:
+> Evidence indicates unauthorized access to another user’s data occurred.
+
+Bad:
+> The user was attempting to hack the system.
+
+---
+
+### Impact Assessment
+Clearly document:
+- Data accessed (type and sensitivity)
+- Functions executed (read, modify, delete)
+- Number of affected users or records
+- Potential business or compliance impact
+
+---
+
+### Escalation Decision
+- Escalated or closed
+- Reason for decision
+- Team notified (Tier 2, AppSec, IR)
+- Timestamp of escalation
+
+---
+
+### Analyst Actions Taken
+- Queries executed
+- Evidence collected
+- Stakeholders notified
+- Recommendations made
+
+---
+
+### Time Tracking
+- Investigation start time
+- Investigation end time
+- Total analyst time spent
+
+This data is often used for metrics and staffing analysis.
+
+</details>
+
+
+---
+
+## Closure Criteria
 
 <details>
 <summary><strong>Expand</strong></summary>
@@ -271,7 +410,7 @@ An incident may be closed when:
 
 ---
 
-## 📚 References
+## References
 
 <details>
 <summary><strong>Expand</strong></summary>
@@ -284,7 +423,7 @@ An incident may be closed when:
 
 ---
 
-## ✅ Analyst Notes
+## Analyst Notes
 
 <details>
 <summary><strong>Expand</strong></summary>
