@@ -7,73 +7,42 @@ Last Updated: (you fill this in)
 
 📌 Purpose
 <details> <summary><strong>Expand</strong></summary>
-
 This playbook provides a standardized workflow for detecting, triaging, investigating, and escalating incidents related to Broken Access Control, where users or systems attempt to access resources, data, or functions outside their authorized permissions.
-
 The goal is to ensure:
-
-Consistent Tier 1 response
-
-Accurate impact assessment
-
-Proper escalation to Tier 2 / AppSec
-
-Clear documentation and handoff
-
+- Consistent Tier 1 response
+- Accurate impact assessment
+- Proper escalation to Tier 2 / AppSec
+- Clear documentation and handoff
 </details>
+
 🎯 Scope
 <details> <summary><strong>Expand</strong></summary>
-
-This playbook applies to:
-
+AThis playbook applies to:
 Public-facing web applications
-
 Internal web portals
-
 APIs (REST / GraphQL)
-
 SaaS platforms
-
 Cloud-hosted services
-
 Out of Scope:
-
 Authentication failures without authorization bypass
-
 Password brute force (covered in separate playbook)
-
 Insider misuse confirmed by HR or Legal
-
 </details>
 🚨 Alert Overview
 <details> <summary><strong>Expand</strong></summary>
-
 Common Alert Names
-
 Unauthorized Resource Access
-
 IDOR Attempt Detected
-
 Privilege Escalation via Web App
-
 Forbidden Endpoint Access
-
 API Scope Violation
-
 Severity Guidelines
-
 Medium: Attempted or blocked access
-
 High: Successful unauthorized access or repeated attempts
-
 Related Frameworks
-
 OWASP A01 – Broken Access Control
-
 MITRE ATT&CK:
-
 T1190 – Exploit Public-Facing Application
-
 T1068 – Privilege Escalation (context dependent)
 
 </details>
