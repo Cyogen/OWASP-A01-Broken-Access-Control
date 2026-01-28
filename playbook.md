@@ -3,7 +3,7 @@
 Playbook Type: Detection & Triage
 Audience: SOC Tier 1 Analysts
 OWASP Category: A01 – Broken Access Control
-Last Updated: (you fill this in)
+Last Updated: 01/27/26
 
 📌 Purpose
 <details> <summary><strong>Expand</strong></summary>
