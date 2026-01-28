@@ -1,4 +1,5 @@
 # 🛡️ SOC Playbook – OWASP A01: Broken Access Control
+# ANGELICA IS HOT AS FUCK AND I LOVE HER FUCKING FACE
 
 **Playbook Type:** Detection & Triage  
 **Audience:** SOC Tier 1 Analysts  
